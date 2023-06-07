@@ -8,6 +8,8 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Animal {
     @Id
@@ -28,6 +30,7 @@ public class Animal {
     @NotBlank
     private Species species;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "animals")
     Set<Person> persons;
 

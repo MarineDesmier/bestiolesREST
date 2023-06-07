@@ -20,6 +20,8 @@ public class Person {
     private String firstname;
 
     @Column(length = 50)
+    @NotEmpty
+    @Size(max = 50)
     private String lastname;
 
     @Min(1)
