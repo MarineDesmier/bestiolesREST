@@ -1,7 +1,10 @@
 package fr.diginamic.dto;
 
+import java.util.Set;
+
 import org.springframework.stereotype.Component;
 
+import fr.diginamic.model.Animal;
 import fr.diginamic.model.Person;
 
 @Component
@@ -15,7 +18,18 @@ public class PersonMapper {
 				person.getLastname().toUpperCase() + " " + 
 				person.getAge() + " ans."
 		);
-		dto.equals(person.getAnimals());
+		// recherche des animaux
+		Set<Animal> animals = person.getAnimals();
+		if(animals != null && !animals.isEmpty()) {
+			String[] listAnimaux = new String[animals.size()];
+			int i = 0;
+			for(Animal animal : animals) {
+				String animalInfo = animal.getName()+" ("+animal.getSpecies()+")";
+				listAnimaux[i] = animalInfo;
+				i++;
+			}
+			dto.setAnimaux(listAnimaux);
+		}
 		return dto;
 	}
 }

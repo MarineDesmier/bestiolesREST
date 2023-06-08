@@ -85,4 +85,11 @@ public class PersonController {
 		   @RequestParam(value = "size", defaultValue = "5") int size){
 	  return personService.findAllPageable(PageRequest.of(pageNumber, size));
    }
+   
+   // methode save pour tester aop
+   @GetMapping("/save")
+	public Person save(@Valid @RequestBody Person person) {
+		return personService.save(null);
+	}
+   
 }

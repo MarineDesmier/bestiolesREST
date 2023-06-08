@@ -11,11 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
 @SpringBootApplication
+@EnableScheduling
+@EnableAspectJAutoProxy
 public class SpeciesApplication /*implements CommandLineRunner */{
 
     Logger logger = LoggerFactory.getLogger(SpeciesApplication.class);

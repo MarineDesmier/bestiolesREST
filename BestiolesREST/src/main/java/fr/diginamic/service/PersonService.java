@@ -50,6 +50,11 @@ public class PersonService {
 		return personRepository.save(updatedPerson);
 	}
 	
+	// methode save pour tester aop
+	public Person save(@Valid Person savePerson) {
+		throw new RuntimeException();
+	}
+	
 	public void deleteById(Integer id) {
 		if(!personRepository.existsById(id)) {
 			throw new EntityNotFoundException(); 
