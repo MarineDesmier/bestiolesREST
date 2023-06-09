@@ -31,15 +31,15 @@ public class ExceptionHandlerControllerAdvice {
 				request.getDescription(false));
 	}
 
-//	@ExceptionHandler({ RuntimeException.class })
-//	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
-//	public ErrorDto handleException500(Exception exception, WebRequest request) {
-//		exception.printStackTrace();
-//		return new ErrorDto(HttpStatus.BAD_REQUEST.value(), LocalDateTime.now(), exception.getMessage(),
-//				request.getDescription(false));
-//	}
+	@ExceptionHandler({ RuntimeException.class })
+	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
+	public ErrorDto handleException500(Exception exception, WebRequest request) {
+		exception.printStackTrace();
+		return new ErrorDto(HttpStatus.BAD_REQUEST.value(), LocalDateTime.now(), exception.getMessage(),
+				request.getDescription(false));
+	}
 
-	@ExceptionHandler({MethodArgumentNotValidException.class})
+	@ExceptionHandler({ MethodArgumentNotValidException.class })
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public ErrorDto handleMethodArgumentNotValidException(
 			MethodArgumentNotValidException exception, 

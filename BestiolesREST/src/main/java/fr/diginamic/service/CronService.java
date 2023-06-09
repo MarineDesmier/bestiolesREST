@@ -10,7 +10,7 @@ public class CronService {
 	@Value("${utilisateur.prenom}")
 	private String prenom;
 
-//	@Scheduled(cron = "${cron.test}")
+	@Scheduled(cron = "${cron.test}")
 	public void ajoutCron() {
 		System.out.println(">>>>>> Mise en place de la tâche cron toute les minutes par "+prenom+" <<<<<<");
 	}

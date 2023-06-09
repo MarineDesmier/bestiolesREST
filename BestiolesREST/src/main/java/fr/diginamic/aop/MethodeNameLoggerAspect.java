@@ -20,7 +20,7 @@ public class MethodeNameLoggerAspect {
 		System.out.println("Dans le joinPoint " + joinPoint);
 	}
 
-	// affiche mes methodes si GET -> findBy Id et findAll dans mon PersonService
+	// affiche mes methodes si GET -> findById et findAll dans mon PersonService
 	@Before("execution(* fr.diginamic.service.PersonService.find*(..))")
 	public void testGetOnly(JoinPoint joinPoint) {
 		logger.info("Seulement les méthodes Get appelée {}", joinPoint.getSignature().getName());
